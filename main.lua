@@ -5,6 +5,17 @@
 lstR={}
 lstInv={}
 curR=nil
+smoke=0
+smokeMax=20
+
+function goTo(pID)
+	for i=1,#lstR do
+		if pID == lstR[i].id then
+			curR = lstR[i]
+			break
+		end
+	end
+end
 
 function addR()
 	local r={}
@@ -23,7 +34,7 @@ end
 r_p = addR()
 r_p.na="Principal room"
 r_p.id="PRINCIPAL"
-r_p.see={"Door"}
+r_p.see={{na="A locked door",id="DOOR"}}
 r_p.n="COULOIR1"
 r_p.e="COULOIR2"
 
@@ -42,36 +53,57 @@ r_c2.e="KITCHEN"
 r_r=addR()
 r_r.na="Room"
 r_r.id="ROOM"
-r_r.see={"BOX"}
+r_r.see={{na="A closed box",id="BOX"}}
 r_r.e="COULOIR1"
 
 r_k=addR()
 r_k.na="Kitchen"
 r_k.id="KITCHEN"
 r_k.w="COULOIR2"
-r_k.see={"HAMMER"}
+r_k.see={{na="A big hammer",id="HAMMER"}}
 
 curR = r_p
-
+z=0
 function TIC()
 	cls()
 	dir=""	
 	print(curR.na,20,0,12)
 	-- Directions
 	if curR.e~="" then
-		dir=dir.."E"
+		dir=dir.."E "
 	end
 	if curR.w~="" then
-		dir=dir.." W"
+		dir=dir.."W "
 	end
 		if curR.n~="" then
-		dir=dir.." N"
+		dir=dir.."N "
 	end	if curR.s~="" then
-		dir=dir.." S"
+		dir=dir.."S "
 	end
 	print(dir,5,40,12)
 	
+	-- Move to other rooms
+	if keyp(5) and curR.e~="" then -- E
+		goTo(curR.e)
+	end
+	if keyp(23) and curR.w~="" then -- W
+		goTo(curR.w)
+	end
 	
+	if keyp(14) and curR.n~="" then -- N
+		goTo(curR.n)
+	end
+	if keyp(19) and curR.s~="" then -- S
+				goTo(curR.s)
+	end
+	
+	-- Show what the player see
+	print("I see : ",5,50,12)
+	for i=1, #curR.see do
+		print(curR.see[i].na,7,50+i*10,12)
+	end
+	
+	-- Show the smoke quantity
 	
 end
 
