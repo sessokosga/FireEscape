@@ -6,7 +6,7 @@ lstR={}
 lstInv={}
 curR=nil
 smoke=0
-smokeMax=20
+smokeMax=60*1000
 
 function goTo(pID)
 	for i=1,#lstR do
@@ -67,8 +67,9 @@ z=0
 function TIC()
 	cls()
 	dir=""	
-	print(curR.na,20,0,12)
+	print(curR.na,50,0,12)
 	-- Directions
+	print("Directions: ",160,25,12)
 	if curR.e~="" then
 		dir=dir.."E "
 	end
@@ -80,7 +81,7 @@ function TIC()
 	end	if curR.s~="" then
 		dir=dir.."S "
 	end
-	print(dir,5,40,12)
+	print(dir,165,33,12)
 	
 	-- Move to other rooms
 	if keyp(5) and curR.e~="" then -- E
@@ -98,13 +99,19 @@ function TIC()
 	end
 	
 	-- Show what the player see
-	print("I see : ",5,50,12)
+	print("I see : ",160,42,12)
 	for i=1, #curR.see do
-		print(curR.see[i].na,7,50+i*10,12)
+		print(curR.see[i].na,165,40+i*10,12)
 	end
 	
 	-- Show the smoke quantity
-	
+	print("Smoke : ",160,10,13)
+	rect(200,10,40,5,15)
+	rect(200,10,smoke*40/smokeMax,5,13)
+	if smoke < smokeMax then
+		smoke = time()
+	end
+
 end
 
 -- <TILES>
