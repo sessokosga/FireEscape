@@ -6,9 +6,9 @@ Made for the Linux Game Jam 2022
 ### Theme : There is no theme
 ### Language / Framework: Lua / TIC-80
 ### Controls : 
-Arrow keys, 
+Arrow keys, E,W,N,S to change rooms
 ### Code : by me
-### Graphism : 
+### Graphism : None
 
 ### Development duration : 
 ### Post mortem
