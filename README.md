@@ -2,6 +2,8 @@
 
 ![Cover](screenshots/homescreen.png)
 
+A Text based Adventure Game.
+
 Made for the [Linux Game Jam 2022](https://itch.io/jam/linux-game-jam-2022)
 
 ### Theme : There is no theme
