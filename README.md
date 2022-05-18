@@ -9,7 +9,8 @@ Made for the [Linux Game Jam 2022](https://itch.io/jam/linux-game-jam-2022)
 ### Theme : There is no theme
 
 ### Language / Framework: Lua / TIC-80
-
+### Get on itch.io : [https://senor16.itch.io/fireescape](https://senor16.itch.io/fireescape)
+### Get on TIC 80 store : [https://tic80.com/play?cart=2774](https://tic80.com/play?cart=2774)
 ### Controls :
 
 Arrow keys, E,W,N,S to change rooms
